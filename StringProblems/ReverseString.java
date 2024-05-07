@@ -12,12 +12,17 @@ public class ReverseString {
     }
 
     static String getReversedString(String str) {
-        StringBuilder rev = new StringBuilder();
-        char[] chars = str.toCharArray();
-        for(int i= chars.length-1; i>=0; i-- ) {
-            rev.append(chars[i]);
-        }
+        //Traversing the string characters
+//        StringBuilder rev = new StringBuilder();
+//        char[] chars = str.toCharArray();
+//        for(int i= chars.length-1; i>=0; i-- ) {
+//            rev.append(chars[i]);
+//        }
+//
+//        return rev.toString();
 
-        return rev.toString();
+        //Using reverse API
+        StringBuilder sb = new StringBuilder(str);
+        return sb.reverse().toString();
     }
 }
