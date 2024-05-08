@@ -2,7 +2,6 @@ package StringProblems;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.Scanner;
 
 public class RemoveDupChar {
 
@@ -34,21 +33,31 @@ public class RemoveDupChar {
                 sb.append(arr[i]);
         }
         System.out.println("New String: " + sb);
+//      -------------------------------------------------------------
+        //Correct outputs in below solns.
 
         //Approach 3
         sb.delete(0, sb.length());
         HashSet<Character> set = new LinkedHashSet<>();
-        for(int i=0; i<input.length(); i++) {
-            if(input.indexOf(input.charAt(i), i+1) == -1)
-                set.add(input.charAt(i));
+        for (char c : input.toCharArray()) {
+            if (set.add(c)) {
+                sb.append(c);
+            }
         }
-        for(char ch: set)
-            sb.append(ch);
         System.out.println("New String: " + sb);
 
-        //Approach 4
-        sb.delete(0, sb.length());
-        input.chars().distinct().forEach(ch -> sb.append((char)ch));
+        //Approach 4:
+        sb = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            if (sb.indexOf(String.valueOf(c)) == -1) {
+                sb.append(c);
+            }
+        }
         System.out.println("New String: " + sb);
+
+        //Approach 5:
+        StringBuilder sb1 = new StringBuilder();
+        input.chars().distinct().forEach(ch -> sb1.append((char)ch));
+        System.out.println("New String: " + sb1);
     }
 }
