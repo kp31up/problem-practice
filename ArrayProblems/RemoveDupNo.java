@@ -34,7 +34,7 @@ public class RemoveDupNo {
         System.out.println("Hashset: "+ set);
 
         //Using stream:
-        List<Integer> list = Arrays.stream(arr).boxed().distinct().collect(Collectors.toList());
+        List<Integer> list = Arrays.stream(arr).distinct().boxed().collect(Collectors.toList());
         System.out.println("Stream: " + list);
     }
 }
