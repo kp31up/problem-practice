@@ -1,52 +1,33 @@
 package problems.misc;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.math.RoundingMode;
 
 public class TxnBigDecimal {
 
-    private int txnId;
-    private BigDecimal amount;
-
-    public TxnBigDecimal(int txnId, BigDecimal amount) {
-        this.amount = amount;
-        this.txnId = txnId;
+    public String calcCommOpt(String saleAmount) {
+        BigDecimal amt = new BigDecimal(saleAmount);
+        if (compareAmount(amt, 0D)) {
+            throw new IllegalArgumentException("Amount cannot be negative");
+        }
+        if (compareAmount(amt, 10000) ){
+            return getScaledComm(BigDecimal.ZERO, 0.01);
+        }
+        if (compareAmount(amt, 20000) ) {
+            return getScaledComm(amt, 0.01);
+        }
+        if (compareAmount(amt, 50000) ){
+            return getScaledComm(amt, 0.02);
+        }
+        return getScaledComm(amt, 0.03);
     }
 
-    public static void main(String[] args) {
+    boolean compareAmount(BigDecimal amount, double target) {
+        return amount.compareTo(BigDecimal.valueOf(target)) <0;
+    }
 
-
-        Scanner sc = null;
-        try {
-            sc = new Scanner(System.in);
-            BigDecimal amt = new BigDecimal(sc.nextDouble());
-            BigDecimal fee;
-            if (amt.compareTo(BigDecimal.valueOf(10000)) > 0) {
-                fee = amt.multiply(BigDecimal.valueOf(0.02));
-            } else if (amt.compareTo(BigDecimal.ONE) > 0 && amt.compareTo(BigDecimal.valueOf(10000)) < 0) {
-                fee = amt.multiply(BigDecimal.valueOf(0.01));
-            } else{
-                throw new RuntimeException("Invalid amount!");
-            }
-            System.out.println("Total fee: "+ (amt.add(fee)));
-        } catch (RuntimeException e) {
-            System.out.println("Exception: "+ e);
-        }
-
-        sc.close();
-
-
-
-        List<Integer> sal = Arrays.asList(1000,500,200,4000,3300,1000);
-        System.out.println(sal
-                .stream()
-                .distinct()
-                .sorted(Comparator.reverseOrder())
-                .limit(3)
-                .collect(Collectors.toList()));
+    String getScaledComm(BigDecimal amount, double comm) {
+        BigDecimal commission = amount.multiply(BigDecimal.valueOf(comm));
+        return commission.setScale(2, RoundingMode.HALF_EVEN).toString();
     }
 }
