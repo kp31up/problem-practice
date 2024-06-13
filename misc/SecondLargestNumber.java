@@ -1,4 +1,4 @@
-package problems.StringProblems;
+package misc;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,7 +33,7 @@ public class SecondLargestNumber {
 
     // Using stream: O(n logn)
     public static int getNo(int arr[]) {
-        List<Integer> list = Arrays.stream(arr).distinct().sorted().boxed().toList();
+        List<Integer> list = Arrays.stream(arr).distinct().sorted().boxed().collect(Collectors.toList());
         System.out.println(list);
         if (list.size() == 1) {
             return -1;
