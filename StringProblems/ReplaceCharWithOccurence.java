@@ -10,6 +10,10 @@ public class ReplaceCharWithOccurence {
         System.out.print("Enter the char: ");
         Scanner sc = new Scanner(System.in);
         char targetChar = sc.next().charAt(0);
+        
+        if(str.indexOf(targetChar) == -1) {
+            System.out.printf("String '%s' doesn't contain the character %c \n", str, targetChar);
+        }
       //Brute force method
         StringBuilder sb = new StringBuilder(str);
         int count = 1;
