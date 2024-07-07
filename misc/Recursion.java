@@ -10,7 +10,10 @@ public class Recursion {
         long input = sc.nextLong();
 
         //Sum of cube of all number from 1 to n
-        System.out.print("Summation of n^3 = " + sumOfSeries(input));
+        System.out.println("Summation of n^3 = " + sumOfSeries(input));
+
+        //Factorial of n
+        System.out.println("Factorial of n = " + findFactorial(input));
 
         sc.close();
     }
@@ -21,6 +24,15 @@ public class Recursion {
         }
         sum = sumOfSeries(n-1) + (long)(Math.pow(n, 3));
         return sum;
+    }
+
+    static long findFactorial(long num) {
+        long fact;
+        if (num == 0) {
+            return 1;
+        }
+        fact = num * findFactorial(num -1);
+        return fact;
     }
 
 
