@@ -1,5 +1,7 @@
 package misc;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Recursion {
@@ -14,6 +16,10 @@ public class Recursion {
 
         //Factorial of n
         System.out.println("Factorial of n = " + findFactorial(input));
+
+        //Print series of factorial
+        List<Long> series = factorialSeries(input);
+        series.forEach(num -> System.out.print(num + " "));
 
         sc.close();
     }
@@ -35,5 +41,20 @@ public class Recursion {
         return fact;
     }
 
+    static ArrayList<Long> factorialSeries(long num) {
+        ArrayList<Long> listFact = new ArrayList<>();
+        addFactorial(num, listFact);
+        return listFact;
+    }
+
+    static long addFactorial(long num, ArrayList<Long> list) {
+        long fact;
+        if (num == 0) {
+            return 1;
+        }
+        fact = num * addFactorial(num -1, list);
+        list.add(fact);
+        return fact;
+    }
 
 }
