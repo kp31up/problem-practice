@@ -9,7 +9,7 @@ public class ReverseArray {
         int n = arr.length;
         printReverse(arr, n);
 
-
+        System.out.println(Arrays.toString(getReversedBySwap(arr, n)));
     }
 
     //Space = O(n), time = O(n)
@@ -20,4 +20,17 @@ public class ReverseArray {
         }
         System.out.println(Arrays.toString(rev));
     }
+
+    //SWAP: Space = O(1), time = O(n)
+    static int[] getReversedBySwap(int[] arr, int n) {
+        int temp;
+        for (int i=0, j=n-1; i<j; i++, j--) {
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
+    }
+
+    //RECURSION: Space = O(1), time = O(n)
 }
