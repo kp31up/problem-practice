@@ -31,6 +31,11 @@ public class StreamProblems {
         System.out.println("Number operation: " + highestThreeNums + " " + multiplyByThree);
 
         //----------------String operations---------------------------
+        String str = "sparring";
+
+        boolean isPresent = str.chars().anyMatch(ch -> ch == 'i');
+        System.out.println("Is i present in "+ str +"? "+ isPresent);
+
         List<String> list = Arrays.asList("RED", "grEEn", "white", "Orange", "pink", "Blue", "Brown");
 
         //.collect(Collectors.toList()) : replaced by toList() in post Java 16 versions.
