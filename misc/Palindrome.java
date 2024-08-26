@@ -6,11 +6,19 @@ public class Palindrome {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
         int original = sc.nextInt();
-        boolean isPalin = original == isPalindrome(original);
-        System.out.println("Is it a palindrome?  : " + isPalin);
+        boolean isPalin = original == isNumberPalindrome(original);
+        System.out.println("Is the number a palindrome?  : " + isPalin);
+
+
+        System.out.print("Enter string: ");
+        int check = isStringPalindrome(sc.next());
+        System.out.println("Is the string a palindrome?  : " + ((check == 1)? "True" : "False"));
+
+        sc.close();
     }
-    public static int isPalindrome(int x) {
+    public static int isNumberPalindrome(int x) {
         int pd = 0;
         while(x > 0){
             int digit = x%10;
@@ -18,5 +26,16 @@ public class Palindrome {
             x = x/10;
         }
         return pd;
+    }
+
+    static int isStringPalindrome(String s) {
+        int len = s.length();
+        int isP = 1;
+        for (int i=0, j=len-1; i<=j; i++, j--) {
+            if(s.charAt(i) != s.charAt(j)) {
+                isP = 0;
+            }
+        }
+        return isP;
     }
 }
