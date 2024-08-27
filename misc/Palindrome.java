@@ -27,7 +27,7 @@ public class Palindrome {
         }
         return pd;
     }
-
+    // can also be used for number palindrome by using String.valueOf() method
     static int isStringPalindrome(String s) {
         int len = s.length();
         int isP = 1;

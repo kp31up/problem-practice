@@ -38,11 +38,11 @@ public class PalindromeSpecialChar {
     }
 
     static boolean isAlphabet(char ch) {
+        // return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        // OR
         if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122)) {
             return true;
         } else
             return false;
-        // OR
-        // return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
     }
 }
