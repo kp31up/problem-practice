@@ -1,4 +1,4 @@
-package problems.StringProblems;
+package StringProblems;
 
 import static java.lang.String.valueOf;
 

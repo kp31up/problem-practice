@@ -1,4 +1,4 @@
-package problems.StringProblems;
+package StringProblems;
 
 public class ReverseEachWord {
 

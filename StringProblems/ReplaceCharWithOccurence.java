@@ -1,4 +1,4 @@
-package problems.StringProblems;
+package StringProblems;
 
 import java.util.Scanner;
 import java.util.stream.Collectors;
