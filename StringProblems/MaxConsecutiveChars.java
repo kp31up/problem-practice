@@ -14,17 +14,19 @@ public class MaxConsecutiveChars {
     private static int[] getMaxPower(String s) {
         int currCount=1, maxCount = 1;
         int startIndex = 0;
-        int[] currMaxArray = new int[]{startIndex,maxCount};
+        int[] currMaxArray = new int[]{startIndex, maxCount};
 
         char[] arr = s.toCharArray();
 
         for (int i=1; i<arr.length; i++) {
+            //When current char matches the previous one, increase current Count.
             if(arr[i] == arr[i -1]){
                 currCount++;
-            } else {
+            } else {   //Otherwise, reset count to 1 & move the startIndex pointer to current index
                 currCount = 1;
                 startIndex = i;
             }
+            //If current count exceeds the max count, update maxCount and store the count & index
             if (currCount > maxCount){
                 maxCount = currCount;
                 currMaxArray[0] = startIndex;
