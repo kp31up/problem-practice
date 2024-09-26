@@ -8,7 +8,7 @@ public class HammingDistance {
         int s2 = 31;
         System.out.println("Hamming distance = "+ hammingDistance(s1,s2));
     }
-
+    // Time: O(log n)
     public static int hammingDistance(int x, int y) {
         int count =0;
         while(x != 0 || y!=0) {

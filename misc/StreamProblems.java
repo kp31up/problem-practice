@@ -21,9 +21,11 @@ public class StreamProblems {
         List<Integer> range = nums.stream().filter(i -> i > 3 && i < 8).collect(Collectors.toList());
         int sumOfOddNums = nums.stream().filter(i -> i % 2 != 0).mapToInt(Integer::intValue).sum();
 
-        int thirdSmallestNum = nums.stream().distinct().sorted().skip(2).findFirst().orElseThrow(() -> new RuntimeException("List size < 3"));
+        int thirdSmallestNum = nums.stream().distinct().sorted().skip(2).findFirst().orElseThrow(
+                () -> new RuntimeException("List size < 3"));
 
-        List<Integer> highestThreeNums = nums.stream().distinct().sorted(Comparator.reverseOrder()).limit(3).collect(Collectors.toList());
+        List<Integer> highestThreeNums = nums.stream().distinct().sorted(Comparator.reverseOrder()).limit(3)
+                                                                                            .collect(Collectors.toList());
 
         //Multiplying All the elements of the list by 3 and returning the updated list
         List<Integer> multiplyByThree = nums.stream().map(i -> i*3).toList();
