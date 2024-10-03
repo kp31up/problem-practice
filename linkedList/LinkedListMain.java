@@ -4,6 +4,8 @@ import exceptions.CustomGlobalException;
 
 import java.util.logging.Logger;
 
+import static linkedList.SinglyLinearLL.printListUsingNode;
+
 public class LinkedListMain {
     static Logger log = Logger.getLogger(SinglyLinearLL.class.getName());
 
@@ -29,6 +31,11 @@ public class LinkedListMain {
 
             ll.removeAtPos(2);
             ll.displayList();
+
+            System.out.print("List after reversing: ");
+            SinglyLinearLL.Node newHead = ll.reverseLL(ll.getHead());
+            printListUsingNode(newHead);
+
         } catch (CustomGlobalException e) {
             log.severe("Exception occurred: "+ e.getMessage());
         }

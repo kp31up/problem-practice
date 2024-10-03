@@ -15,6 +15,10 @@ public class SinglyLinearLL {
         }
     }
 
+    public Node getHead() {
+        return this.head;
+    }
+
     public void addFirst(int data) {
         Node nn = new Node(data);
         nn.next = head;
@@ -95,6 +99,26 @@ public class SinglyLinearLL {
             System.out.println("Element not in the List!");
         } else {
             prev.next = trav.next;
+        }
+    }
+
+    public Node reverseLL(Node  head) {
+        Node prev = null, curr = head, next;
+
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    static void printListUsingNode(Node node) {
+        while(node != null) {
+            System.out.print(node.data + "->");
+            node = node.next;
         }
     }
 
