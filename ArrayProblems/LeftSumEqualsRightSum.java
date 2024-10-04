@@ -6,7 +6,7 @@ import java.util.List;
 // From a given list of integers find the index at which the sum of left elements = sum of right elements.
 public class LeftSumEqualsRightSum {
 
-    public static void main() {
+    public static void main(String[] args) {
         //1,2,3,9,4,2 and 1,2,-2
         List<Integer> list = Arrays.asList(1,2,3,9,4,2);
         int n = list.size();
