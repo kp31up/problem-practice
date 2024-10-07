@@ -29,7 +29,7 @@ public class LeftSumEqualsRightSum {
 
         for(int i=0; i< left.length; i++){
             if( left[i] == right[i]) {
-                System.out.print("Index: "+ i);
+                System.out.println("Desired Index: "+ i);
             }
         }
     }
