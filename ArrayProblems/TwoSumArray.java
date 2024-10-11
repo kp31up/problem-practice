@@ -2,6 +2,7 @@ package ArrayProblems;
 
 import java.util.*;
 
+// Find the first pair that is having sum equal to a given target value from the array.
 public class TwoSumArray {
 
     public static void main(String[] args) {
